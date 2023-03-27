@@ -15,7 +15,7 @@ const HomeTable = () => {
                         <h2 className="card-title text-1xl">
                             Side Table
                         </h2>
-                        <Link to='' className='hover:underline'>View More</Link>
+                        <Link to='' className='hover:underline hover:underline-offset-4 hover:text-red-600'>View More</Link>
 
                     </div>
                 </div>
@@ -27,7 +27,7 @@ const HomeTable = () => {
                         <h2 className="card-title text-1xl">
                             Side Table
                         </h2>
-                        <Link to='' className='hover:underline'>View More</Link>
+                        <Link to='' className='hover:underline hover:underline-offset-4 hover:text-red-600'>View More</Link>
 
                     </div>
                 </div>
