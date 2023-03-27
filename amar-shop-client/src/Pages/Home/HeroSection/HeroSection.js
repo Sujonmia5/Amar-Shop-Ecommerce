@@ -3,7 +3,7 @@ import Shufa from '../../../asset/Shufa.png'
 
 const HeroSection = () => {
     return (
-        <div className="hero bg-[#FBEBB5] -mt-20 font-serif">
+        <div className="hero bg-[#FBEBB5] font-serif">
             <div className="hero-content flex-col lg:flex-row-reverse mt-20">
                 <img src={Shufa} className="md:max-w-md rounded-lg" alt='' />
                 <div>

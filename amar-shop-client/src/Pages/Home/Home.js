@@ -7,7 +7,7 @@ import ProductForYou from './ProductForYou/ProductForYou';
 import Social from './Social/Social';
 const Home = () => {
     return (
-        <div className='container mx-auto'>
+        <div className='max-w-7xl mx-auto'>
             <HeroSection />
             <HomeTable />
             <ProductForYou />

@@ -23,6 +23,10 @@ body {
     @apply h-[2px] bg-[#fbc100] z-50 absolute bottom-[10px] left-4
 }
 
+.nav-li:hover a {
+    color: #fbc100;
+}
+
 .nav-li:hover .Navbar_Underline {
     animation: underlineAnimation 1s ease;
     width: 80%;

@@ -5,9 +5,9 @@ import Heart from '../../asset/Icon/heart.png'
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
-    const NavItems = ['Home', 'Shop', 'About', 'Contact', 'Blog']
+    const NavItems = ['home', 'shop', 'about', 'contact', 'blog']
     return (
-        <div className="navbar shadow-xl container mx-auto bg-transparent">
+        <div className="navbar shadow-xl max-w-7xl mx-auto bg-transparent">
             <div className="flex-1">
                 <a href='/' className='px-4 flex justify-center items-center gap-2 text-black'>
                     <BsShop className='text-4xl hidden sm:block text-[#f8be00]' />
@@ -22,7 +22,7 @@ const Navbar = () => {
                                 key={item}
                                 className='relative nav-li'
                             >
-                                <Link className='text-xl btn btn-link no-underline hover:no-underline text-black font-normal' to='/'>{item}
+                                <Link className='text-xl btn btn-link no-underline hover:no-underline text-black font-normal' to={item}>{item}
                                 </Link>
                                 <span className='Navbar_Underline'></span>
                             </li>)
