@@ -5,6 +5,8 @@ import Card from '../../Components/Card/Card';
 import DynamicHero from '../../Components/DynamicHero/DynamicHero';
 import ShopNav from './ShopNav/ShopNav';
 
+
+
 const Shop = () => {
     const id = useLocation()
     const Pathname = id.pathname.split('/')[2]
