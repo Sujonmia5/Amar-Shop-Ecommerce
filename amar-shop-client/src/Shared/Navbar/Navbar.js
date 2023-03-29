@@ -10,7 +10,7 @@ const Navbar = () => {
         <div className="navbar shadow-xl max-w-7xl mx-auto bg-transparent">
             <div className="flex-1">
                 <a href='/' className='px-4 flex justify-center items-center gap-2 text-black'>
-                    <BsShop className='text-4xl hidden sm:block text-[#f8be00]' />
+                    <BsShop className='text-4xl hidden sm:block text-primary' />
                     <h2 className='text-xl sm:text-2xl font-bold'>Amar Shop</h2>
                 </a>
             </div>

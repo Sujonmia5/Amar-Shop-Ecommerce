@@ -4,18 +4,20 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
-
+    extend: {
+      backgroundImage: {
+        'hero-pattern': "url('https://i.ibb.co/m8JBknG/Rectangle-1-herder.png')",
+      },
+    },
   },
   daisyui: {
     themes: [
       {
         mytheme: {
-          primary: "#FBEBB5",
+          "primary": "#f8be00",
+          "secondary": "#FAF4F4",
         },
       },
-      "dark",
-      "cupcake",
     ],
   },
   plugins: [require("daisyui")],
