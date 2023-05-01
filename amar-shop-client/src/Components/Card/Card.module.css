@@ -1,0 +1,13 @@
+.cart_show:hover .cart {
+    color: blue;
+    bottom: 1.5rem;
+    transition: all 0.5s ease;
+}
+
+.button {
+    @apply btn btn-circle bg-gray-900 border-none;
+}
+
+.button:hover {
+    @apply bg-[#b88e2f];
+}

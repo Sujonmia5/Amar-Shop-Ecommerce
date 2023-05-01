@@ -5,24 +5,19 @@ import { TfiAngleRight, TfiHome } from "react-icons/tfi";
 
 const DynamicHero = ({ Pathname }) => {
 
-    let path = Pathname
-    if (Pathname === undefined) {
-        path = 'Shop'
-    }
-
     return (
         <div className='h-80 bg-hero-pattern object-contain'>
             <div className='flex justify-center items-center h-full flex-col'>
                 <figure>
                     <img className='h-20 w-20' src={logo} alt=''></img>
                 </figure>
-                <h2 className='text-3xl'>{path}</h2>
+                <h2 className='text-4xl font-medium -mt-4'>{Pathname?.path1}</h2>
                 <div className="tabs items-center">
                     <TfiHome className='mr-1 w-3 h-3'></TfiHome>
                     <Link to='/' className="tab text-black hover:text-primary p-0 normal-case font-sans font-semibold">
                         Home</Link>
                     <TfiAngleRight className=' w-4 h-4' />
-                    <Link className="tab text-black p-0 normal-case font-sans font-semibold cursor-default">{path}</Link>
+                    <Link className="tab text-black p-0 normal-case font-sans font-semibold cursor-default">{Pathname?.path2}</Link>
                 </div>
             </div>
         </div>

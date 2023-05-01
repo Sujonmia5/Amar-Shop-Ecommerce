@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BsSliders } from "react-icons/bs";
+import { State_Context } from '../../../Context/StateContext';
 
 const ShopNav = () => {
+    const { count, setSize } = useContext(State_Context)
+
     return (
-        <div className="navbar bg-secondary px-4">
+        <div className="navbar bg-secondary px-4 mb-10 shadow">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label className=" hover:text-primary">
@@ -12,29 +15,29 @@ const ShopNav = () => {
                     </label>
                 </div>
                 <div className='ml-10 hidden md:flex'>
-                    <span className='w-[4px] h-6 bg-gray-500 mr-2 '></span>
-                    <p className='font-sans text-base inline-block'>Showing 1–16 of 32 results</p>
+                    <span className='w-[2px] h-6 bg-gray-500 mr-2 '></span>
+                    <p className=' text-base inline-block'>Showing 1–8 of {count} Results</p>
                 </div>
             </div>
             <div className="navbar-end">
                 <div className='flex items-center mx-10'>
-                    <p className='font-sans mr-2 text-xl hidden lg:block'>Show</p>
-                    <select className="max-w-[55px] hidden md:block bg-white focus:border-none selection:border-none h-[40px] text-black px-2 focus:outline-none font-sans">
-                        <option>8</option>
-                        <option>10</option>
-                        <option selected>16</option>
-                        <option>20</option>
-                        <option>25</option>
+                    <p className=' mr-2 text-lg hidden lg:block'>Show</p>
+                    <select onChange={(e) => setSize(e.target.value)} className="max-w-[55px] hidden md:block bg-white focus:border-none selection:border-none h-[40px] text-black px-2 focus:outline-none cursor-pointer">
+                        <option defaultValue={''}>8</option>
+                        <option defaultValue={''}>10</option>
+                        <option defaultValue={''} selected>16</option>
+                        <option defaultValue={''}>20</option>
+                        <option defaultValue={''}>25</option>
                     </select>
                 </div>
                 <div className='flex items-center'>
-                    <p className='font-sans mr-2 text-xl hidden lg:block'>Short By</p>
-                    <select className="bg-white w-40 md:max-w-xs focus:border-none selection:border-none h-[40px] text-black px-2 focus:outline-none font-sans">
-                        <option>Default sorting</option>
-                        <option>Sort by popularity</option>
-                        <option selected>Sort by latest</option>
-                        <option>Sort by price: low to high</option>
-                        <option>Sort by price: high to low</option>
+                    <p className='mr-2 text-lg hidden lg:block'>Short By</p>
+                    <select defaultValue={''} className="bg-white w-40 md:max-w-xs focus:border-none selection:border-none h-[40px] text-black px-2 focus:outline-none cursor-pointer">
+                        <option defaultValue={''}>Default sorting</option>
+                        <option defaultValue={''}>Sort by popularity</option>
+                        <option defaultValue={''} selected>Sort by latest</option>
+                        <option defaultValue={''}>Sort by price: low to high</option>
+                        <option defaultValue={''}>Sort by price: high to low</option>
                     </select>
                 </div>
             </div>

@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BsShop, BsJustify } from "react-icons/bs";
+import { FaRegUser } from "react-icons/fa";
 import ShoppingCart from '../../asset/Icon/shopping-cart.png'
 import Heart from '../../asset/Icon/heart.png'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import { State_Context } from '../../Context/StateContext';
+import { StoreData } from '../../utilities/AddedProduct';
+
+
 
 const Navbar = () => {
+    const { CartFetch } = useContext(State_Context)
     const NavItems = ['home', 'shop', 'about', 'contact', 'blog']
+    const data = StoreData();
+
+    const url = useLocation()
+    const path = url?.pathname?.includes('cart');
     return (
         <div className="navbar shadow-xl max-w-7xl mx-auto bg-transparent">
             <div className="flex-1">
@@ -22,7 +32,7 @@ const Navbar = () => {
                                 key={item}
                                 className='relative nav-li'
                             >
-                                <Link className='text-xl btn btn-link no-underline hover:no-underline text-black font-normal' to={item}>{item}
+                                <Link className='text-base btn btn-link no-underline hover:no-underline text-black font-bold' to={item}>{item}
                                 </Link>
                                 <span className='Navbar_Underline'></span>
                             </li>)
@@ -31,12 +41,25 @@ const Navbar = () => {
                 </div>
                 <div className=" dropdown-end gap-2">
                     <label className="btn btn-ghost hover:bg-transparent btn-circle">
+                        <Link to='/my-account' className="indicator">
+                            <FaRegUser className='w-8 h-7 hover:text-primary' />
+                        </Link>
+                    </label>
+                    <label className="btn btn-ghost hover:bg-transparent btn-circle hidden md:inline-block">
                         <div className="indicator">
-                            <img className='w-8 h-7' src={Heart} alt=''></img>
+                            <img className='w-8 h-7 ' src={Heart} alt=''></img>
                         </div>
                     </label>
-                    <label className="btn btn-ghost hover:bg-transparent btn-circle">
+                    <label
+                        onClick={() => {
+                            if (path) {
+                                window.location.reload(true);
+                            }
+                            CartFetch()
+                        }}
+                        htmlFor="cart_modal" className="btn btn-ghost hover:bg-transparent btn-circle">
                         <div className="indicator">
+                            <div className="badge badge-primary absolute -right-5 -top-2">{Object.keys(data).length}</div>
                             <img className='w-8 h-7' src={ShoppingCart} alt=''></img>
                         </div>
                     </label>
@@ -53,7 +76,7 @@ const Navbar = () => {
                                 key={item}
                                 className='relative mt-4'
                             >
-                                <Link className='text-xl hover:no-underline text-black font-normal' to=''>{item}
+                                <Link className='text-base uppercase btn-link no-underline hover:no-underline text-black font-bold' to=''>{item}
                                 </Link>
                             </li>)
                         }
