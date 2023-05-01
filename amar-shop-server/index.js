@@ -54,6 +54,15 @@ async function run() {
         //     }
         //     res.send({ hi: 'hi' })
         // })
+
+        app.get('/related-product', async (req, res) => {
+            const category = req.query.category;
+            const query = {
+                category
+            }
+            const result = await ProductsData.find(query).limit(4).toArray()
+            res.send(result)
+        })
     }
     finally {
 

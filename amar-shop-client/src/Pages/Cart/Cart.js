@@ -50,7 +50,7 @@ const Cart = () => {
                         <td>Rs. {product?.price}</td>
                         <td >
                             <div className='flex justify-center items-center border w-8 h-8 border-accent rounded'>
-                                <input className='w-8 h-8 text-black  border-none focus-visible:border-none focus:border-none focus-within:border-none active:border-none bg-transparent text-center' type='text' defaultValue={product.quantity} />
+                                <input onBlur={(e) => product.quantity = e.target.value} className='w-8 h-8 text-black  border-none focus-visible:border-none focus:border-none focus-within:border-none active:border-none bg-transparent text-center' type='number' defaultValue={product.quantity} />
                             </div>
                         </td>
                         <td className='text-black'>Rs. {product?.price * product?.quantity}</td>

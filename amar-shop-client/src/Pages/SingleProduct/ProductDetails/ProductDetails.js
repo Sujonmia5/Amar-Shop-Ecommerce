@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { GoStar } from 'react-icons/go';
 import { HiMinusSm, HiPlusSm } from 'react-icons/hi';
 import { IoIosStarHalf } from 'react-icons/io';
+import { ProductAddToCart } from '../../../utilities/AddedProduct';
 
 const ProductDetails = ({ data }) => {
-    const { product_img, product_name, description, colors_available, category, Type, size, price } = data;
+    const [quantity, setQuantity] = useState(1)
+    const { product_img, product_name, description, colors_available, _id, category, Type, size, price } = data;
     return (
         <div className="hero mt-0 px-2 sm:px-10 md:px-24">
             <div className="hero-content flex-col lg:flex-row p-0 gap-x-10 items-start">
@@ -19,7 +21,7 @@ const ProductDetails = ({ data }) => {
                     </figure>
                 </div>
                 <div className='lg:w-1/2 space-y-2'>
-                    <h1 className="text-4xl font-bold">{product_name}</h1>
+                    <h1 className="text-3xl font-bold">{product_name}</h1>
                     <p className='text-2xl text-[#9F9F9F] font-medium'>RS. {price}</p>
                     <div className='flex items-center gap-x-3'>
                         <div className='flex gap-x-1'>
@@ -41,11 +43,13 @@ const ProductDetails = ({ data }) => {
                     </div>
                     <div className='flex gap-x-4 pt-5'>
                         <div className='border-2 w-28 flex items-center justify-around rounded-md'>
-                            <HiMinusSm className='w-5 h-5 hover:text-primary cursor-pointer' />
-                            <p className='text-black font-semibold'>1</p>
-                            <HiPlusSm className='w-5 h-5 hover:text-primary cursor-pointer' />
+                            {
+                                quantity === 1 ? <HiMinusSm className='w-5 h-5  text-gray-600  cursor-not-allowed' /> : <HiMinusSm onClick={() => setQuantity(quantity - 1)} className='w-5 h-5 hover:text-primary cursor-pointer' />
+                            }
+                            <p className='text-black font-semibold'>{quantity}</p>
+                            <HiPlusSm onClick={() => setQuantity((pre) => pre + 1)} className='w-5 h-5 hover:text-primary cursor-pointer' />
                         </div>
-                        <button className="btn btn-outline text-black hover:bg-primary h-8 w-36">Add To Cart</button>
+                        <button onClick={() => ProductAddToCart(_id, quantity)} className="btn btn-outline text-black hover:bg-primary h-8 w-36">Add To Cart</button>
                     </div>
                     <div className='w-full'>
                         <div className='h-[2px] w-full bg-gray-300 mt-10 mb-8'></div>

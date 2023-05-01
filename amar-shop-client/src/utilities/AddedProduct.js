@@ -26,6 +26,21 @@ export const StoreData = () => {
     return jsonData
 }
 
+export const ProductAddToCart = (id, quantity) => {
+    let Shopping_cart = {};
+    const oldCart = StoreData()
+    if (oldCart[id]) {
+        return toast.error('Already Added. Please check your Cart')
+    }
+    else if (oldCart) {
+        Shopping_cart = oldCart;
+        Shopping_cart[id] = quantity;
+    }
+    Shopping_cart[id] = quantity
+    localStorage.setItem('cart', JSON.stringify(Shopping_cart))
+    toast.success('Product Added Successfully!')
+}
+
 export const getData = async () => {
     const jsonData = StoreData()
     const response = await fetch(`http://localhost:5500/products`)
@@ -39,3 +54,4 @@ export const getData = async () => {
 
     return cart;
 }
+
