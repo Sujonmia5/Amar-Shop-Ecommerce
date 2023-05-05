@@ -63,6 +63,21 @@ async function run() {
             const result = await ProductsData.find(query).limit(4).toArray()
             res.send(result)
         })
+
+        app.put('/size', async (req, res) => {
+            const query = {};
+            const updateData = {
+                $set: {
+                    Size: ['L', 'XL', 'XS']
+                }
+            }
+            const upSert = {
+                upsert: true
+            }
+
+            const result = await ProductsData.updateMany(query, updateData, upSert)
+            console.log(result);
+        })
     }
     finally {
 

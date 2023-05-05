@@ -6,7 +6,7 @@ import { ProductAddToCart } from '../../../utilities/AddedProduct';
 
 const ProductDetails = ({ data }) => {
     const [quantity, setQuantity] = useState(1)
-    const { product_img, product_name, description, colors_available, _id, category, Type, size, price } = data;
+    const { product_img, product_name, description, colors_available, _id, category, Type, Size, price } = data;
     return (
         <div className="hero mt-0 px-2 sm:px-10 md:px-24">
             <div className="hero-content flex-col lg:flex-row p-0 gap-x-10 items-start">
@@ -37,9 +37,9 @@ const ProductDetails = ({ data }) => {
                     <p className=''>Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended highs for a sound.</p>
                     <p className='text-[#9F9F9F] items-center'>Size</p>
                     <div className='flex gap-x-3'>
-                        <p className='w-8 h-8 align-middle bg-primary flex items-center justify-center text-sm rounded'>L</p>
-                        <p className='w-8 h-8 align-middle bg-secondary flex items-center justify-center text-sm rounded'>XL</p>
-                        <p className='w-8 h-8 align-middle bg-secondary flex items-center justify-center text-sm rounded'>XS</p>
+                        <p className='w-8 h-8 align-middle bg-secondary flex items-center justify-center text-sm rounded'>{Size[2]}</p>
+                        <p className='w-8 h-8 align-middle bg-primary flex items-center justify-center text-sm rounded'>{Size[0]}</p>
+                        <p className='w-8 h-8 align-middle bg-secondary flex items-center justify-center text-sm rounded'>{Size[1]}</p>
                     </div>
                     <div className='flex gap-x-4 pt-5'>
                         <div className='border-2 w-28 flex items-center justify-around rounded-md'>

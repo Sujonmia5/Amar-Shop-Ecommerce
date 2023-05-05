@@ -19,6 +19,12 @@ body {
     color: black;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 .Navbar_Underline {
     @apply h-[2px] bg-[#fbc100] z-50 absolute bottom-[10px] left-4
 }

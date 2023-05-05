@@ -9,7 +9,6 @@ import { useQuery } from '@tanstack/react-query'
 
 const SingleProduct = () => {
     const SingleData = useLoaderData()
-    console.log(SingleData.category);
 
     const style = 'text-3xl font-bold leading-[54px]';
 

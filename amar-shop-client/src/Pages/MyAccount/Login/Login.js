@@ -9,6 +9,7 @@ const Login = () => {
     const SubmitHandler = (data) => {
         console.log(data);
     }
+
     return (
         <div className='md:p-10'>
             <h2 className='text-4xl font-semibold my-9'>Log In</h2>
@@ -18,7 +19,7 @@ const Login = () => {
                     <input {...register('email', { required: 'Email is required' })} className={errors.email ? 'input input-bordered border-red-600 w-full max-w-xs h-11' : 'input input-bordered border-gray-700 w-full max-w-xs h-11'} type='email' placeholder='Enter your email' />
                 </div>
                 <div className='flex flex-col space-y-3'>
-                    <label htmlFor='email' className='ml-1 text-base font-medium'>Password</label>
+                    <label htmlFor='password' className='ml-1 text-base font-medium'>Password</label>
                     <input {...register('password', { required: 'Password is required' })} className={errors.password ? 'input input-bordered border-red-600 w-full max-w-xs h-11' : 'input input-bordered border-gray-700 w-full max-w-xs h-11'} type='password' placeholder='Enter your password' />
                 </div>
                 <div className='space-x-1'>
