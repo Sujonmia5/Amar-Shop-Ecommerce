@@ -6,6 +6,9 @@ import SingleProduct from "../Pages/SingleProduct/SingleProduct";
 import Cart from "../Pages/Cart/Cart";
 import MyAccount from "../Pages/MyAccount/MyAccount";
 import Contact from "../Pages/Contact/Contact";
+import About from "../Pages/About/About";
+import Blog from "../Pages/Blog/Blog";
+import Checkout from "../Pages/Checkout/Checkout";
 
 export const router = createBrowserRouter([
     {
@@ -32,6 +35,15 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/contact', element: <Contact />
+            },
+            {
+                path: '/about', element: <About />
+            },
+            {
+                path: '/blog', element: <Blog />
+            },
+            {
+                path: '/checkout', element: <Checkout />
             }
         ]
     },

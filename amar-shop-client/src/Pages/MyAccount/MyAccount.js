@@ -8,7 +8,7 @@ import { AuthContext } from '../../Context/AccountContext';
 import RegisterFrom from './Register/RegisterFrom';
 
 const MyAccount = () => {
-    const { registerEmail, setRegisterEmail, user, setUser } = useContext(AuthContext)
+    const { registerEmail, setRegisterEmail, user, loader } = useContext(AuthContext)
 
     const URL = useLocation()
     const path = URL.pathname.includes('my-account')
@@ -19,6 +19,11 @@ const MyAccount = () => {
             path2: 'My account'
         }
     }
+    console.log(user);
+
+    if (loader) {
+        return <div>Loading .....</div>
+    }
 
     return (
         <div>
@@ -27,7 +32,7 @@ const MyAccount = () => {
             {
                 registerEmail ? <><RegisterFrom /></> :
                     <>
-                        {user?.email ? <><div>User</div></> :
+                        {user?.email ? <React.Fragment><div>User</div></React.Fragment> :
                             <div className='max-h-screen grid grid-cols-2 px-24 gap-5'>
                                 <Login />
                                 <Register />

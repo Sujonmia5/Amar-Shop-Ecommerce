@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CartTotals = ({ cart }) => {
     let TotalPrice = 0;
@@ -16,7 +17,7 @@ const CartTotals = ({ cart }) => {
                         <p className='text-base font-bold'>Total: <span className='text-gray-500 ml-5'>Rs. {TotalPrice}</span></p>
                     </div>
                     <div className="card-actions mt-5">
-                        <button className="btn btn-outline w-48 hover:bg-primary text-black hover:text-gray-800 animate-none">Checkout</button>
+                        <Link to='/checkout' state={cart} className="btn btn-outline w-48 hover:bg-primary text-black hover:text-gray-800 animate-none">Checkout</Link>
                     </div>
                 </div>
             </div>

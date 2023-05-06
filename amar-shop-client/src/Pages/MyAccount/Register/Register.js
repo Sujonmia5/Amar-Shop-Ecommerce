@@ -8,14 +8,13 @@ const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
 
     const registerHandler = (data) => {
-
         setRegisterEmail({ email: data.email })
     }
 
     return (
         <div className='md:p-10'>
             <h2 className='text-4xl font-semibold my-9'>Register</h2>
-            <form onClick={handleSubmit(registerHandler)} className='space-y-6'>
+            <form onSubmit={handleSubmit(registerHandler)} className='space-y-6'>
                 <div className='flex flex-col space-y-3'>
                     <label htmlFor='' className='ml-1 text-base font-medium'>Email address</label>
                     <input type='email' id="email" {...register('email', { required: 'Email is required' })} className={errors.email ? 'input input-bordered border-red-600 w-full max-w-xs h-11' : 'input input-bordered border-gray-700 w-full max-w-xs h-11'} placeholder='Enter your email' />

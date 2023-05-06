@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import CartProduct from '../CartProduct/CartProduct';
 import { BsBagX } from 'react-icons/bs'
 import { State_Context } from '../../Context/StateContext';
+import { Link } from 'react-router-dom';
 
 const CartModal = () => {
     const { cart, isLoading } = useContext(State_Context)
@@ -42,15 +43,14 @@ const CartModal = () => {
                         </div>
                         <div className='h-[2px] w-full bg-slate-400 mt-2 mb-2 -m-8'></div>
                         <div className='flex justify-between items-center mt-4'>
-                            <a
-                                href='/cart' className='btn btn-sm btn-outline text-black hover:bg-primary rounded-full' >View Cart</a>
+                            <a href='/cart' className='btn btn-sm btn-outline text-black hover:bg-primary rounded-full' >View Cart</a>
 
-                            <button className='btn btn-sm btn-outline text-black hover:bg-primary rounded-full mr-28'>Checkout</button>
+                            <a href='/checkout' state={cart} className='btn btn-sm btn-outline text-black hover:bg-primary rounded-full mr-28'>Checkout</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import DynamicHero from '../../Components/DynamicHero/DynamicHero';
 import { Link, useLocation } from 'react-router-dom';
 import HeroBottom from '../../Components/HeroBottom/HeroBottom';
@@ -33,7 +33,7 @@ const Cart = () => {
 
     else {
         content = cart.map(product => {
-            return <React.Fragment>
+            return <React.Fragment key={product._id}>
                 <tbody className='text-accent text-base'>
                     {/* Table row */}
                     <tr>
@@ -49,13 +49,10 @@ const Cart = () => {
                         </td>
                         <td>Rs. {product?.price}</td>
                         <td >
-                            <div className='flex justify-center items-center border w-8 h-8 border-accent rounded'>
-                                <input onBlur={(e) => product.quantity = e.target.value} className='w-8 h-8 text-black  border-none focus-visible:border-none focus:border-none focus-within:border-none active:border-none bg-transparent text-center' type='number' defaultValue={product.quantity} />
-                            </div>
+                            {product.quantity}
                         </td>
                         <td className='text-black'>Rs. {product?.price * product?.quantity}</td>
                         <td className='text-black'>
-
                             <AiFillDelete onClick={() => RemoveProductToCart(product._id)} className='text-base w-7 h-7 text-primary cursor-pointer' />
                         </td>
                     </tr>
@@ -63,7 +60,7 @@ const Cart = () => {
             </React.Fragment>
         })
     }
-
+    console.log(cart);
 
     useEffect(() => {
         CartFetch()

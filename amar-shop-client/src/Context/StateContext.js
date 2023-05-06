@@ -2,6 +2,7 @@ import React, { createContext, useEffect, useState } from 'react';
 import { StoreData, getData } from '../utilities/AddedProduct';
 import { RemoveProduct } from '../utilities/RemoveProduct';
 import { useLocation } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 
 
 export const State_Context = createContext()
@@ -27,6 +28,7 @@ const StateContext = ({ children }) => {
             setIsLoading(false)
         }
     }
+
 
     // Remove Product from cart
     const RemoveProductToCart = (id) => {
